@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ETF School — 미니멀 학습 홈페이지</title>
+  <meta name="description" content="20~30대 초보 투자자를 위한 미니멀 ETF 학습 사이트" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --soft: #f1f5f9; /* slate-100 */
+      --line: #e2e8f0; /* slate-200 */
+      --brand: #111827; /* near-black */
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Arial, sans-serif; color: var(--fg); background: var(--bg); }
+    a { color: var(--fg); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 24px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding: 8px 0 16px; border-bottom:1px solid var(--line); position: sticky; top:0; background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); z-index: 50; }
+    .logo { font-weight: 700; letter-spacing: -0.02em; }
+    .nav { display:flex; gap:16px; }
+    .btn { border:1px solid var(--fg); padding:10px 14px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; font-weight:600; }
+    .btn:hover { background: var(--fg); color:#fff; text-decoration:none; }
+    .hero { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items:center; padding: 40px 0; }
+    .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height:1.1; letter-spacing:-0.02em; margin: 0 0 12px; }
+    .hero p { color: var(--muted); margin: 0 0 20px; }
+    .hero .card { border:1px solid var(--line); border-radius: 20px; overflow:hidden; }
+    .hero img { width:100%; height:auto; display:block; }
+
+    section { padding: 48px 0; border-top:1px solid var(--line); }
+    h2 { font-size: clamp(22px, 3vw, 28px); margin: 0 0 16px; }
+    .muted { color: var(--muted); }
+
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    .card { border:1px solid var(--line); border-radius: 16px; padding: 16px; background: #fff; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+    .tag { display:inline-block; font-size:12px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; margin-right:8px; color:#334155; }
+    .label { font-size:12px; color:#64748b; }
+
+    .list { display:flex; flex-direction:column; gap: 12px; }
+    .news-item { display:flex; gap: 14px; border:1px solid var(--line); border-radius:16px; padding:14px; align-items:flex-start; }
+    .news-thumb { width: 120px; height: 80px; border-radius:12px; object-fit:cover; background: var(--soft); border:1px solid var(--line); }
+    .news-meta { font-size: 12px; color:#64748b; margin-top:4px; }
+
+    .faq details { border:1px solid var(--line); border-radius:16px; padding:16px; }
+    .faq summary { font-weight:600; cursor:pointer; }
+
+    footer { border-top:1px solid var(--line); padding: 28px 0 48px; color:#64748b; font-size:14px; }
+
+    /* Mobile */
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      header .nav { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container" role="banner">
+    <div class="logo" aria-label="Site logo">ETF School</div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">소개</a>
+      <a href="#starter">시작 가이드</a>
+      <a href="#news">뉴스</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="#subscribe" aria-label="구독하기">구독하기</a>
+  </header>
+
+  <main>
+    <section class="container hero" id="top">
+      <div>
+        <h1>ETF 입문, <span style="background:linear-gradient(90deg,#111827,#64748b); -webkit-background-clip:text; background-clip:text; color:transparent;">핵심만</span> 배우세요.</h1>
+        <p>주식처럼 거래되는 ETF의 기본부터 실제 투자전략까지, 20~30대 초보자를 위한 미니멀 학습 사이트.</p>
+        <div class="label" aria-live="polite">업데이트: 2025-10-31</div>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="tag">코어·인덱스</span>
+          <span class="tag">배당</span>
+          <span class="tag">테마(반도체/AI)</span>
+          <span class="tag">채권</span>
+        </div>
+      </div>
+      <div class="card" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1600&auto=format&fit=crop" alt="차트 보드와 펜을 든 사람의 미니멀 사진" />
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <h2>ETF란?</h2>
+      <p class="muted">ETF(Exchange Traded Fund)는 특정 지수나 자산을 추종하도록 설계된 상장지수펀드로, <strong>실시간 거래</strong>와 <strong>분산투자</strong>가 가능한 저비용 상품입니다.</p>
+      <div class="grid-3" style="margin-top:16px;">
+        <div class="card">
+          <h3>왜 ETF인가</h3>
+          <p>낮은 비용, 높은 투명성, 간편한 분산. 초보자에게도 적합한 코어 자산.</p>
+        </div>
+        <div class="card">
+          <h3>어떻게 사나</h3>
+          <p>증권계좌에서 주식처럼 매수/매도. 수수료·환율·추적오차를 함께 확인.</p>
+        </div>
+        <div class="card">
+          <h3>무엇을 보나</h3>
+          <p>총보수(TER), 운용규모(AUM), 거래량/스프레드, 과거 추적오차, 분배 정책.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="starter">
+      <h2>시작 가이드 (코어 → 위성)</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1) 코어(핵심)</h3>
+          <p class="muted">광범위 지수 (예: KOSPI200, S&P 500), 전세계 주식, 중장기 채권 등으로 기초 포트폴리오를 구축.</p>
+        </div>
+        <div class="card">
+          <h3>2) 위성(보조)</h3>
+          <p class="muted">AI/반도체·배당·리츠·원자재 등 테마·위험 선호에 맞게 소액부터.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>리스크 체크리스트</h3>
+        <ul class="muted">
+          <li>장기 투자: 시장 변동성에 흔들리지 않기</li>
+          <li>수수료: 총보수 + 매매비용 + 환전비용</li>
+          <li>과세: 분배금/양도차익, 국내/해외 ETF 과세 차이</li>
+          <li>분산: 자산·지역·섹터 분산 유지</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="container" id="news" aria-labelledby="news-heading">
+      <h2 id="news-heading">실제 기사로 보는 ETF 동향</h2>
+      <p class="muted">최신 ETF 관련 기사 링크입니다. 데모 이미지를 사용했습니다.</p>
+      <div class="list" style="margin-top:12px;">
+        <!-- NEWS 1 -->
+        <article class="news-item">
+          <img class="news-thumb" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200&auto=format&fit=crop" alt="미니멀 차트 썸네일" />
+          <div>
+            <a href="https://www.ft.com/content/75b022e4-486b-4eaa-8b8b-4911b335cf6b" target="_blank" rel="noopener noreferrer">
+              <h3>SPY, 사상 최대 순유출… 저비용 경쟁 심화</h3>
+            </a>
+            <div class="news-meta">Financial Times · 2025-10 (3주 전) · 영어</div>
+            <p class="muted">S&P 500 대표 ETF인 SPY에서 올해 327억 달러 순유출이 발생. 저비용 대체(VOO, IVV)로 자금 이동.</p>
+          </div>
+        </article>
+        
+        <!-- NEWS 2 -->
+        <article class="news-item">
+          <img class="news-thumb" src="https://images.unsplash.com/photo-1551281044-8a5d2e1d59d9?q=80&w=1200&auto=format&fit=crop" alt="거래소 사진 썸네일" />
+          <div>
+            <a href="https://koreajoongangdaily.joins.com/news/2025-10-27/business/finance/Celebration-of-Kospi-surpassing-4000-points-for-first-time/2429974" target="_blank" rel="noopener noreferrer">
+              <h3>KOSPI 4,000 돌파 기념… 국내 ETF 관심 급증</h3>
+            </a>
+            <div class="news-meta">Korea JoongAng Daily · 2025-10-27 · 한국어/영어</div>
+            <p class="muted">KOSPI가 4,000을 처음 상회. 국내 지수·테마 ETF 출시에 탄력.</p>
+          </div>
+        </article>
+
+        <!-- NEWS 3 -->
+        <article class="news-item">
+          <img class="news-thumb" src="https://images.unsplash.com/photo-1542228262-3d663b3063fd?q=80&w=1200&auto=format&fit=crop" alt="신문 지면 썸네일" />
+          <div>
+            <a href="https://www.chosun.com/english/market-money-en/2025/10/22/5OL5VLQIU5HQDK72HMDDFZNOZU/" target="_blank" rel="noopener noreferrer">
+              <h3>국내 ETF 신규 출시 급증: AI·반도체 테마 중심</h3>
+            </a>
+            <div class="news-meta">The Chosun Ilbo · 2025-10-22 · 한국어/영어</div>
+            <p class="muted">최근 두 달 새 14개 국내 ETF 신규 상장. AI·반도체 등 성장 섹터에 자금 유입.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="learn">
+      <h2>학습 리소스</h2>
+      <div class="grid-3">
+        <a class="card" href="https://www.ft.com/etf-hub" target="_blank" rel="noopener noreferrer">
+          <h3>FT ETF Hub</h3>
+          <p>ETF 구조·유동성·증권대여 등 심화 읽을거리.</p>
+        </a>
+        <a class="card" href="https://www.bloomberg.com/markets/etfs" target="_blank" rel="noopener noreferrer">
+          <h3>Bloomberg ETFs</h3>
+          <p>글로벌 ETF 뉴스와 데이터 허브.</p>
+        </a>
+        <a class="card" href="https://www.etfstream.com/" target="_blank" rel="noopener noreferrer">
+          <h3>ETF Stream</h3>
+          <p>산업 트렌드·오피니언 정기 발행.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="container faq" id="faq">
+      <h2>FAQ</h2>
+      <div class="grid-2">
+        <details>
+          <summary>초보자는 어떤 ETF부터 시작하나요?</summary>
+          <p class="muted">국내외 광범위 지수를 추종하는 저비용 ETF(예: KODEX200, VOO/IVV 등)로 코어를 만들고, 이후 위성에 테마를 추가해 보세요.</p>
+        </details>
+        <details>
+          <summary>배당 ETF와 코어 ETF 중 무엇이 먼저인가요?</summary>
+          <p class="muted">장기 목표(은퇴, 종잣돈) 달성이 우선이라면 코어가 먼저, 현금흐름 비중이 중요하면 배당을 보조로.</p>
+        </details>
+        <details>
+          <summary>해외 ETF 환헤지는 필요한가요?</summary>
+          <p class="muted">투자 기간·통화 전망·금리차를 고려하세요. 초보자는 무헤지로 시작하고 점진적으로 이해도를 높이는 방법도 좋습니다.</p>
+        </details>
+        <details>
+          <summary>암호화폐 ETF는 너무 위험한가요?</summary>
+          <p class="muted">변동성이 매우 큽니다. 코어를 갖춘 뒤 포트폴리오 내 소수 비중으로 접근하는 것을 권장합니다.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="container" id="subscribe">
+      <h2>업데이트 받아보기</h2>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); this.reset(); alert('구독 신청이 접수되었습니다!');" aria-label="구독 폼">
+          <label for="email" class="label">이메일</label><br>
+          <input id="email" type="email" required placeholder="you@example.com" style="width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; margin:8px 0 12px;">
+          <button class="btn" type="submit" aria-label="구독 신청">구독 신청</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container" role="contentinfo">
+    <div>© 2025 ETF School. 데모 사이트 — 교육 목적으로만 사용.</div>
+  </footer>
+</body>
+</html>
